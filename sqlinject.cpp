@@ -22,7 +22,7 @@ std::string getRandomString() {
     char blah[] = "0987654321qwertyuiopzxcvbnmlhgfdsazxcvbnm";
     std::stringstream ss;
     for( int i=0; i<SIZE; i++ ) {
-       ss << blah[ std::rand() % (SIZE - 1) ];
+       ss << blah[ std::rand() % (strlen(blah) - 1) ];
     }
     return ss.str();
 }
