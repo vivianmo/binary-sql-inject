@@ -15,6 +15,7 @@ g++ inject.cpp -lssl -lcrypto -O3 -o inject
 #include <openssl/md5.h>
 #include <ctime>
 #include <cstdlib>
+#include <cstring>
 
 std::string getRandomString() {
     int SIZE = 32; // hex string 2 chars per byte
@@ -22,7 +23,7 @@ std::string getRandomString() {
     char blah[] = "0987654321qwertyuiopzxcvbnmlhgfdsazxcvbnm";
     std::stringstream ss;
     for( int i=0; i<SIZE; i++ ) {
-       ss << blah[ std::rand() % (SIZE - 1) ];
+       ss << blah[ std::rand() % strlen(blah) ];
     }
     return ss.str();
 }
